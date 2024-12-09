@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private Rigidbody playerRb;
     public float movementSpeed;
+    public float jumpForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,10 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector2.right * movementSpeed * horizontalInput);
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            playerRb.AddForce(Vector2.up * jumpForce);
+        }
     }
 }
