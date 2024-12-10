@@ -880,7 +880,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 919132148499645418}
+  barrelRb: {fileID: 0}
   barrelHolder: {fileID: 794127200}
+  horizontalThrowForce: 3
+  verticalThrowForce: 1.5
 --- !u!33 &1459479974038677407
 MeshFilter:
   m_ObjectHideFlags: 0

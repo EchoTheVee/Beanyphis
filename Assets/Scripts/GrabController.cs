@@ -5,9 +5,13 @@ using UnityEngine;
 public class GrabController : MonoBehaviour
 {
     public GameObject barrel;
+    public Rigidbody barrelRb;
     public GameObject barrelHolder;
     private bool canGrabBarrel = false;
     private bool barrelHold = false;
+    public float horizontalThrowForce;
+    public float verticalThrowForce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,8 @@ public class GrabController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !canGrabBarrel)
         {
             barrelHold = false;
+            barrelRb.AddForce(Vector2.right * horizontalThrowForce);
+            barrelRb.AddForce(Vector2.up * verticalThrowForce);
         }
     }
 
@@ -40,6 +46,7 @@ public class GrabController : MonoBehaviour
         if (other.gameObject.CompareTag("Barrel") && !barrelHold)
         {
             barrel = other.gameObject;
+            barrelRb = other.gameObject.GetComponent<Rigidbody>();
             canGrabBarrel = true;
         }
     }
