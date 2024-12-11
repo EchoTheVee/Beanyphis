@@ -34,8 +34,8 @@ public class GrabController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !canGrabBarrel)
         {
             barrelHold = false;
-            barrelRb.AddForce(Vector2.right * horizontalThrowForce);
-            barrelRb.AddForce(Vector2.up * verticalThrowForce);
+            StartCoroutine(BarrelThrow());
+            
         }
     }
 
@@ -58,5 +58,14 @@ public class GrabController : MonoBehaviour
             //barrel = null;
             canGrabBarrel = false;
         }
+    }
+
+    IEnumerator BarrelThrow()
+    {
+        Debug.Log("YEET!");
+        yield return new WaitForSeconds(0.1f);
+        barrelRb.constraints = RigidbodyConstraints.None;
+        barrelRb.AddForce(Vector2.right * horizontalThrowForce, ForceMode.Impulse);
+        barrelRb.AddForce(Vector2.up * verticalThrowForce, ForceMode.Impulse);
     }
 }
