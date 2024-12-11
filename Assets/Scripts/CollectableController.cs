@@ -22,7 +22,7 @@ public class CollectableController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gm.bananasGotten += 1;
+            gm.bananasGotten = gm.bananasGotten + 1;
             gameObject.SetActive(false);
         }
     }
