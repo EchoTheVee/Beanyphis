@@ -63,9 +63,10 @@ public class GrabController : MonoBehaviour
     IEnumerator BarrelThrow()
     {
         Debug.Log("YEET!");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         barrelRb.constraints = RigidbodyConstraints.None;
         barrelRb.AddForce(Vector2.right * horizontalThrowForce, ForceMode.Impulse);
         barrelRb.AddForce(Vector2.up * verticalThrowForce, ForceMode.Impulse);
+        barrelRb = null;
     }
 }
