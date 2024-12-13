@@ -15,11 +15,16 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector2.right * movementSpeed * horizontalInput);
 
+        
+    }
+
+    private void Update()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             playerRb.AddForce(Vector2.up * jumpForce);
