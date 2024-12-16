@@ -21,7 +21,7 @@ public class ButtonController : MonoBehaviour
         if (collision.gameObject.CompareTag("Barrel"))
         {
             gameObject.SetActive(false);
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //mmmm
         }
     }
 }
