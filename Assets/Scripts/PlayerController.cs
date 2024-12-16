@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     public float movementSpeed;
     public float jumpForce;
+    private bool canJump;
+    public float gravity;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +22,33 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector2.right * movementSpeed * horizontalInput);
 
-        
+        if (!canJump)
+        {
+            playerRb.AddForce(Vector2.down * gravity);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canJump)
         {
             playerRb.AddForce(Vector2.up * jumpForce);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canJump = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canJump = false;
         }
     }
 }

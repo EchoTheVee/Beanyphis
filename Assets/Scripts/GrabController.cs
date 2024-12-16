@@ -11,6 +11,10 @@ public class GrabController : MonoBehaviour
     private bool barrelHold = false;
     public float horizontalThrowForce;
     public float verticalThrowForce;
+    public GameObject hold1;
+    public GameObject hold2;
+    public GameObject free1;
+    public GameObject free2;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +33,20 @@ public class GrabController : MonoBehaviour
         if (barrelHold)
         {
             barrel.transform.position = barrelHolder.transform.position;
+            free1.gameObject.SetActive(false);
+            free2.gameObject.SetActive(false);
+            hold1.gameObject.SetActive(true);
+            hold2.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.E) && !canGrabBarrel)
         {
             barrelHold = false;
             StartCoroutine(BarrelThrow());
-            
+            free1.gameObject.SetActive(true);
+            free2.gameObject.SetActive(true);
+            hold1.gameObject.SetActive(false);
+            hold2.gameObject.SetActive(false);
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
+    public GameObject door;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class ButtonController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Barrel"))
         {
+            door.gameObject.SetActive(false);
             gameObject.SetActive(false);
             Destroy(collision.gameObject); //mmmm
         }
