@@ -15,6 +15,8 @@ public class GrabController : MonoBehaviour
     public GameObject hold2;
     public GameObject free1;
     public GameObject free2;
+    public GameObject push1;
+    public GameObject push2;
 
     // Start is called before the first frame update
     void Start()
