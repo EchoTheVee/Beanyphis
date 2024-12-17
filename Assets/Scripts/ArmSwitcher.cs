@@ -27,6 +27,9 @@ public class ArmSwitcher : MonoBehaviour
             gc.free2.SetActive(false);
             gc.push1.SetActive(true);
             gc.push2.SetActive(true);
+            gc.hold1.SetActive(false);
+            gc.hold2.SetActive(false);
+            
         }
     }
 }
