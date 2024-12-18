@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class TitleScreenManager : MonoBehaviour
+public class PlatformController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -12,11 +11,8 @@ public class TitleScreenManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            SceneManager.LoadScene("LevelOne");
-        }
+        //float x_movemen
     }
 }
