@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private bool canJump;
     public float gravity;
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
+    public int hp = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +40,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump)
         {
             playerRb.AddForce(Vector2.up * jumpForce);
+        }
+
+        if (hp < 3)
+        {
+            heart3.gameObject.SetActive(false);
+        }
+
+        if (hp < 2)
+        {
+            heart2.gameObject.SetActive(false);
+        }
+
+        if (hp < 1)
+        {
+            heart1.gameObject.SetActive(false);
+            SceneManager.LoadScene("GameOver");
         }
     }
 

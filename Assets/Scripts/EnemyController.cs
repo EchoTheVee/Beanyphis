@@ -6,9 +6,11 @@ public class EnemyController : MonoBehaviour
 {
     public Rigidbody crateRb;
     public float moveSpeed;
+    public PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         crateRb = GetComponent<Rigidbody>();
     }
 
@@ -41,7 +43,8 @@ public class EnemyController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            playerController.hp = playerController.hp - 1;
         }
     }
 }
