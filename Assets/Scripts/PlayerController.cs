@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canJump)
         {
-            playerRb.AddForce(Vector2.down * gravity);
+            playerRb.AddForce(Vector2.down * gravity, ForceMode.Impulse);
         }
     }
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && canJump)
         {
-            playerRb.AddForce(Vector2.up * jumpForce);
+            playerRb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
 
         if (hp < 3)

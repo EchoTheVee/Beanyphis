@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            Debug.Log($"You've been struck by a smooth {other.gameObject.name}");
             transform.Rotate(Vector3.up * 180);
         }
 
